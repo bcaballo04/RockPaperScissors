@@ -39,7 +39,7 @@ function game(){
     let playerScore = 0;
     let compScore = 0;
 
-    while (playerScore < 5 || compScore < 5){
+    while (playerScore < 5 && compScore < 5){
 
     let playerSelection = prompt("Choose rock, paper, or scissors!");
     let computerSelection = getComputerChoice();
