@@ -17,13 +17,27 @@ const display = document.createElement("div");
 display.textContent = ` `;
 document.body.appendChild(display);
 
-let outcome = 0;
+let playerCounter = 0;
+let compCounter = 0;
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach(function (button){
     button.addEventListener("click", function (e){
-        outcome = playRound(button.className, getComputerChoice())
-        display.textContent = outcome;
+        let comp = getComputerChoice();
+        let outcome = playRound(button.className, comp)
+
+    if(outcome == 1){
+        display.textContent = "You win because " + button.className + " beats " + comp + "!"
+        playerCounter++
+    }
+    if(outcome == 2){
+        display.textContent = "You tie! Same option!"
+    }
+    if(outcome == 3){
+        display.textContent = "You lose because " + button.className + " beats " + comp + "!"
+        compCounter++
+    }
+
     });
 });
 
@@ -97,19 +111,19 @@ function playRound(playerSelection, computerSelection){
     let player = playerSelection.toLowerCase();
 
     if ((player == "rock" && computerSelection == "scissors") || (player == "paper" && computerSelection == "rock") || (player == "scissors" && computerSelection == "paper")){
-        return 1
+        return 1;
     }
 
     else if (player == computerSelection){
-        return 2
+        return "You tie! Same option!"
     }
 
     else if ((computerSelection == "rock" && player == "scissors") || (computerSelection == "paper" && player == "rock") || (computerSelection == "scissors" && player == "paper")){
-        return 3
+        return "You lose because " + computerSelection + " beats " + playerSelection + "!"
     }
 
     else{
-        return 4
+        return "Choose a correct item!"
     }
 }
 
