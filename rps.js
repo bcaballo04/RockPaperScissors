@@ -38,6 +38,16 @@ buttons.forEach(function (button){
         compCounter++
     }
 
+if (playerCounter == 5){
+    display.textContent = "5 rounds won! You win!!"
+    playerCounter = 0;
+}
+
+if (compCounter == 5){
+    display.textContent = "5 rounds lost! Computer wins!!"
+    compCounter = 0;
+}
+
     });
 });
 
