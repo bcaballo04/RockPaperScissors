@@ -115,11 +115,11 @@ function playRound(playerSelection, computerSelection){
     }
 
     else if (player == computerSelection){
-        return "You tie! Same option!"
+        return 2
     }
 
     else if ((computerSelection == "rock" && player == "scissors") || (computerSelection == "paper" && player == "rock") || (computerSelection == "scissors" && player == "paper")){
-        return "You lose because " + computerSelection + " beats " + playerSelection + "!"
+        return 3
     }
 
     else{
