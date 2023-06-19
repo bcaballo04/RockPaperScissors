@@ -15,6 +15,7 @@ document.body.appendChild(scissorsb);
 
 const display = document.createElement("div");
 display.textContent = ` `;
+display.style.cssText = "color: blue; font-size: 20px; margin: 10px;"
 document.body.appendChild(display);
 
 let playerCounter = 0;
